@@ -20,19 +20,29 @@ cursor = con.cursor()
 
 # ******************************************************************************************
 
-cursor.execute("select * from user;")
-cursor.fetchall()
 
+#create user function
 
-
-cursor.execute("select uno from user order by uno desc limit 1;")
 def c_user():
-    cursor.execute("select uno from user order by uno desc limit 1")
+    uno=0
+    uid=''
+    cursor.execute("select uno from user order by uno desc limit 1;")
+    uno = cursor.fetchall()[0][0] + 1
+    print(uno)
+    cursor.execute("select uid from user")
+    u_name = cursor.fetchall()[0]
+    uid = input("Enter username: ").strip()
+    if uid in u_name:
+        print("Username already taken")
+        return 
+    pwd = input("Enter password: ").strip()
+    cursor.execute("insert into user values ("+str(uno)+",\'"+uid+"\',\'"+pwd+"\')")
+    print("user succesfully registered!!")
 
 
+# ******************* MAIN *****************************
+c_user()
 
-# fetch part
-print(cursor.fetchall()[0][0] + 1)
 
 
 # committing the changes
@@ -41,3 +51,5 @@ con.commit()
 # closing the cursor and the connection
 cursor.close()
 con.close()
+
+
