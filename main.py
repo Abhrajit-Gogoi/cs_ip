@@ -26,8 +26,8 @@ u_name=[]
 s_list=[]
 cursor.execute("select uno from user order by uno desc limit 1;")
 uno = cursor.fetchall()[0][0] + 1
-login = False
-
+login = "F"
+current_sid = 0
 
 
 
@@ -73,13 +73,12 @@ def login():
     username() # updates username list and checks
     if uid not in u_name:
         print("Invalid username....")
-        return
+        return False
     cursor.execute("select u_pwd from user where uid=\'"+uid+"\'")
     pwd = input("enter password: ").strip()
     if pwd != cursor.fetchall()[0][0]:
         print("invalid password")
-        return
-    login = True
+        return False
     print("Welcome " + uid+ " hope you enjoy using our services!!")
     cursor.execute("select uno from user where uid=\'"+uid+"\';")
     uno = cursor.fetchall()[0][0]
@@ -121,17 +120,53 @@ def v_sub():
         r.append(s[i][0])
     print(r)
     
-    
+
+
+
+
 
 
 
 
 
 # ******************* MAIN *****************************
-uno = login()
 
-print(uno)
-c_sub()
+while True:
+    # starting the main execution loop of the program
+    print()
+    print("============================ WELCOME TO MY CS-IP ====================================\n")
+    if login != "T":
+        print("What would you like to do? \n" \
+        "\t1. Create an account. \n" \
+        "\t2. Login to your account. \n" \
+        "\t3. EXIT.")
+        ch = int(input("Enter the number corresponding to your choice: "))
+        if ch ==1:
+            c_user()
+            continue
+        
+        elif ch ==2:
+            l = login()
+            if l != False:
+                uno = l
+                login = "T"
+            else:
+                continue 
+        elif ch == 3:
+            print("Bye Byeeeeee")
+            break
+        else:
+            print("Invalid situation")
+            continue
+    elif login == "T":
+        print("What would you like to do?")
+    
+    
+
+
+
+
+
 
 
 # committing the changes
