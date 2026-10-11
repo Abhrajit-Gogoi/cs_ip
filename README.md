@@ -5,4 +5,14 @@ Here, I will be using the terminal itself to run the code and not go for any UI 
 
 ## The main idea:
 
-I am a JEE advanced aspirant. I have an error logger powered by ai agent already there. So i will use this chance to make a tool so that i can rate how proficient i am at each subject..... I will be mainely using foreign keys and primary keys to ensure smoothness.. i initially thought of creating N tables for N subjects but i was adviced against it so here i am using 2 tables only.
+I am a JEE advanced aspirant. I have an error logger powered by ai agent already there. So i will use this chance to make a tool so that i can rate how proficient i am at each subject..... I will be mainely using foreign keys and primary keys to ensure smoothness.. i initially thought of creating N tables for N subjects but i was adviced against it so here i will have 4 tables to prevent clash if ever 2 people create the same subject. 
+
+## Requirements and how to run:
+
+- You must have a mysql server installed
+- Clone this repository by running the following command:
+    git clone https://github.com/Abhrajit-Gogoi/cs_ip
+- run the install.py file. This initialises the database and tables. It will ask for database name change it to you preference. If your sql username and password are different, change it in line 7 of install.py
+    python install.py
+
+### demo link:

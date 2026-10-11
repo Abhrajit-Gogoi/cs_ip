@@ -106,8 +106,7 @@ def c_sub():
 
 
 
-# done for today reemember to do the following:
-# - complete the second pathway for creating new subject
+
 
 
 
@@ -160,6 +159,9 @@ while True:
             continue
     elif login == "T":
         print("What would you like to do?")
+        print("1. View subjects \n2. Select subjects \n3. Exit")
+        ch = int(input("Enter the number corresponding to your choice: "))
+        if ch
     
     
 
