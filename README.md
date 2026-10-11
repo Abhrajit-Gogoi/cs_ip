@@ -15,7 +15,8 @@ I am a JEE advanced aspirant. I have an error logger powered by ai agent already
 - run the install.py file. This initialises the database and tables. It will ask for database name change it to you preference. If your sql username and password are different, change it in line 7 of install.py
     python install.py
 
-### demo link:
+### demo VIDEO:
+<video controls src="DEMO.webm" title="Demo"></video>
 
 
 This was made for my shcool computer science ip project so I had to create a full report on it too along with this :( too much extra work uffff!!!

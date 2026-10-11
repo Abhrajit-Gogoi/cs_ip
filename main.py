@@ -51,7 +51,6 @@ def slist():
 
 #create user function
 def c_user():
-    uno=0
     uid=''
     uid = input("Enter username: ").strip()
     username()
@@ -108,9 +107,19 @@ def c_sub():
 
 
 #view chapters function
-def v_chp():
-    print()
+def v_chp(sno):
+    cursor.execute("select c_name from chp where s_name='"+s_list[sno]+"'")
+    l = cursor.fetchall()
+    chp = []
+    for i in range(0,len(l)):
+        chp.append(l[i][0])
+    print("the available chapters are: \n")
+    print(l)
     
+
+
+
+
 
 
 
@@ -185,10 +194,23 @@ while True:
                 c_sub()
                 continue
             elif ch ==2:
-                while True:
-                    print("\nWhat would you like to do? \n1. Tag chapter \n2. Create chapter 3. Go back")
-                    ch = int(input("Enter the number corresponding to your choice: "))
-                    
+                    sno = int(input("Enter index of subject from subject list: "))
+                    print()
+                    sn = s_list[sno]
+                    while True:
+                        print("\nWhat would you like to do? \n1. Tag chapter \n2. Create chapter \n3. Go back")
+                        ch = int(input("Enter the number corresponding to your choice: "))
+                        if ch == 1:
+                            v_chp(sn)
+                            t_chp(sn)
+                        elif ch == 2:
+                            c_chp(sn)
+                        elif ch == 3:
+                            break
+                        else:
+                            print("\nInvalid choice\n")
+                        
+
                     
             else:
                 print("Invalid choice!!")

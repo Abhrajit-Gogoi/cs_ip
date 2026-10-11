@@ -28,7 +28,7 @@ cursor.execute("create table sub (s_id int not null primary key, u_id json, s_na
 cursor.execute("insert into sub values(0,'[0]','null')")
 
 # this creates the chapter table
-cursor.execute("create table chp (c_id int primary key, c_name varchar(20) not null, s_id int not null, uno json)")
+cursor.execute("create table chp (c_id int primary key, c_name varchar(20) not null, s_name varchar(20), uno json)")
 cursor.execute("insert into chp values(0, 'null',0)")
 
 # this creates the tag table
