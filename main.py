@@ -92,7 +92,7 @@ def c_sub():
     cursor.execute("select s_id from sub order by s_id desc limit 1;")
     s_id = cursor.fetchall()[0][0] + 1
     slist() # updates subject list every time to check
-    s_name = input("Enter subject name: ")
+    s_name = input("\nEnter subject name: ")
     if s_name in s_list:
         cursor.execute("select u_id from sub where s_name='"+s_name+"\'")
         uida = eval(cursor.fetchall()[0][0])
@@ -101,8 +101,16 @@ def c_sub():
         print("Successfully created!!")
     else:
         cursor.execute("insert into sub values("+str(s_id)+",'["+str(uno)+"]', '"+s_name+"') ")
-        print("New subject successfully created!!")
+        print("New subject successfully created!!\n")
         
+
+
+
+
+#view chapters function
+def v_chp():
+    print()
+    
 
 
 
@@ -112,12 +120,18 @@ def c_sub():
 
 # view subjects function
 def v_sub():
+    s_list = []
     cursor.execute("select s_name from sub;")
     s=cursor.fetchall()
+    cursor.execute("select u_id from sub")
+    a = cursor.fetchall()
     r=[]
     for i in range(0,len(s)):
-        r.append(s[i][0])
+        if uno in eval(a[i][0]):
+            r.append(s[i][0])
+    print("\n The available subjects are: ")
     print(r)
+    s_list.append(r)
     
 
 
@@ -158,10 +172,29 @@ while True:
             print("Invalid situation")
             continue
     elif login == "T":
-        print("What would you like to do?")
-        print("1. View subjects \n2. Select subjects \n3. Exit")
-        ch = int(input("Enter the number corresponding to your choice: "))
-        if ch
+        while True:
+            print("What would you like to do?")
+            print("1. View subjects \n2. Select subjects \n3. Create subject \n4. Exit")
+            ch = int(input("Enter the number corresponding to your choice: "))
+            if ch == 1:
+                v_sub()
+            elif ch == 4:
+                login = 'F'
+                break
+            elif ch == 3:
+                c_sub()
+                continue
+            elif ch ==2:
+                while True:
+                    print("\nWhat would you like to do? \n1. Tag chapter \n2. Create chapter 3. Go back")
+                    ch = int(input("Enter the number corresponding to your choice: "))
+                    
+                    
+            else:
+                print("Invalid choice!!")
+            print("\n======================================================================================\n")
+
+            
     
     
 

@@ -16,3 +16,6 @@ I am a JEE advanced aspirant. I have an error logger powered by ai agent already
     python install.py
 
 ### demo link:
+
+
+This was made for my shcool computer science ip project so I had to create a full report on it too along with this :( too much extra work uffff!!!
